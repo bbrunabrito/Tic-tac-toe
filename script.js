@@ -23,84 +23,88 @@ for(i = 0; i  < 9; i++) {
 
 
 function colocaElem(id, elem) {
-    let ganhador = 0;
+    atribuiElemento(id, elem);
+    let ganhador = checaGanhou();
     console.log(jogadas);
-    if(jogadas == 8) {
-        alert("Deu velha!");
+
+    ganhador = checaGanhou();
+    console.log(ganhador);
+    
+    if(ganhador !== 'V') {
+        alert("Parabéns " + ganhador);
         location.reload();
     }
-
-
-    atribuiElemento(id, elem);
+    
     
     let local = document.getElementById(id);
     local.innerText = `${elem}`;
     
-    ganhador = checaGanhou();
-    if(ganhador != 0) {
-        alert("Parabéns " + ganhador);
+
+    if(jogadas == 8 && ganhador === 'V') {
+        alert("Deu velha!");
         location.reload();
-    }    
+    }
+       
     jogadas++;
 
 }
 
 function checaGanhou() {
     let ganhou;
-    if(sq1 == sq2 && sq1 == sq3 && sq2 == sq3) {
+    if(sq1 === sq2 && sq1 === sq3 && sq2 === sq3) {
         ganhou = sq1;
         document.getElementById('1').style.backgroundColor = 'green';
         document.getElementById('2').style.backgroundColor = 'green';
         document.getElementById('3').style.backgroundColor = 'green';
     }
 
-    else if(sq4 = sq5 && sq4 == sq6 && sq5 == sq6) {
+    else if(sq4 === sq5 && sq4 === sq6 && sq5 === sq6) {
         ganhou = sq4;
         document.getElementById('4').style.backgroundColor = 'green';
         document.getElementById('5').style.backgroundColor = 'green';
         document.getElementById('6').style.backgroundColor = 'green';
     }
 
-    else if(sq7 == sq8 && sq7 == sq9 && sq8 == sq9) {
+    else if(sq7 === sq8 && sq7 === sq9 && sq8 === sq9) {
         ganhou = sq7;
         document.getElementById('7').style.backgroundColor = 'green';
         document.getElementById('8').style.backgroundColor = 'green';
         document.getElementById('9').style.backgroundColor = 'green';
     }
 
-    else if(sq1 == sq4 && sq1 == sq7 && sq4 == sq7) {
+    else if(sq1 === sq4 && sq1 === sq7 && sq4 === sq7) {
         ganhou = sq1;
         document.getElementById('1').style.backgroundColor = 'green';
         document.getElementById('4').style.backgroundColor = 'green';
         document.getElementById('7').style.backgroundColor = 'green';
     }
 
-    else if(sq2 == sq5 && sq2 == sq8 && sq5 == sq8) {
+    else if(sq2 === sq5 && sq2 === sq8 && sq5 === sq8) {
         ganhou = sq2;
         document.getElementById('2').style.backgroundColor = 'green';
         document.getElementById('5').style.backgroundColor = 'green';
         document.getElementById('8').style.backgroundColor = 'green';
     }
 
-    else if(sq3 == sq6 && sq3 == sq9 && sq6 == sq9) {
+    else if(sq3 === sq6 && sq3 === sq9 && sq6 === sq9) {
         ganhou = sq3;
         document.getElementById('3').style.backgroundColor = 'green';
         document.getElementById('6').style.backgroundColor = 'green';
         document.getElementById('9').style.backgroundColor = 'green';
     }
-    else if(sq1 == sq5 && sq1 == sq9 && sq5 == sq9) {
+    else if(sq1 === sq5 && sq1 === sq9 && sq5 === sq9) {
         ganhou = sq1;
         document.getElementById('1').style.backgroundColor = 'green';
         document.getElementById('5').style.backgroundColor = 'green';
         document.getElementById('9').style.backgroundColor = 'green';
     }
-    else if(sq3 == sq5 && sq3 == sq7 && sq5 == sq7) {
+    else if(sq3 === sq5 && sq3 === sq7 && sq5 === sq7) {
         ganhou = sq3;
         document.getElementById('3').style.backgroundColor = 'green';
         document.getElementById('5').style.backgroundColor = 'green';
         document.getElementById('7').style.backgroundColor = 'green';
     }
-    else ganhou = 0;
+    else ganhou = 'V';
     return ganhou;
 }
 
