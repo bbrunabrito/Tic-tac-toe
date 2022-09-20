@@ -23,12 +23,11 @@ for(i = 0; i  < 9; i++) {
 
 function colocaElem(id, elem) {
     let ganhador = 0;
-    if(jogadas >= 8) {
-        ganhador = checaGanhou();
-        if(ganhador != 0) alert("ganhador e " + ganhador);
-        else alert("Deu velha!");
+    if(jogadas == 9) {
+        alert("Deu velha!");
         location.reload();
     }
+
 
     atribuiElemento(id, elem);
     
