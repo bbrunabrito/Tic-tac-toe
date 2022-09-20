@@ -23,7 +23,8 @@ for(i = 0; i  < 9; i++) {
 
 function colocaElem(id, elem) {
     let ganhador = 0;
-    if(jogadas == 9) {
+    console.log(jogadas);
+    if(jogadas == 8) {
         alert("Deu velha!");
         location.reload();
     }
