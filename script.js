@@ -15,6 +15,7 @@ for(i = 0; i  < 9; i++) {
         const el = event.target;
         const id = el.id;
         colocaElem(id, elem);
+        el.style.pointerEvents = 'none';
         if(elem == 'X') elem = 'O';
         else elem = 'X';
     });
